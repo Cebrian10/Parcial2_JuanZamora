@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SeleccionPerfilActivity">
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Universidad Tecnológica de Panamá\nFacultad de Sistemas\n\nSeleccione su Perfil"
+        android:textSize="29dp"
+        android:gravity="center"
+        android:layout_margin="25dp"/>
+
+    <RadioGroup
+        android:id="@+id/rgOpciones"
+        android:layout_below="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:id="@+id/rbEstudiante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sitio de Estudiante">
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/rbEstudianteSIU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sitio de Estudiante SIU">
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/rbProfesor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sitio de Profesor">
+        </RadioButton>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_below="@+id/rgOpciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entrar"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

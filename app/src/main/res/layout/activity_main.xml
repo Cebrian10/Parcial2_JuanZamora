@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Universidad Tecnológica de Panamá\nFacultad de Sistemas\n\nNuevo Sistema de Matrícula"
+        android:textSize="29dp"
+        android:gravity="center"
+        android:layout_margin="25dp"/>
+
+    <LinearLayout
+        android:id="@+id/linIconos"
+        android:layout_below="@+id/txtTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgLogoUtp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src=""/>
+
+        <ImageView
+            android:id="@+id/imgLogoFISC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src=""/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtCedula"
+        android:layout_below="@+id/linIconos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cedula"/>
+
+    <EditText
+        android:id="@+id/edtContra"
+        android:layout_below="@+id/edtCedula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"/>
+
+    <Button
+        android:id="@+id/btnIngresar"
+        android:layout_below="@+id/edtContra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingresar"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
