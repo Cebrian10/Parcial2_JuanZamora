@@ -16,10 +16,10 @@ public class HistorialNotasActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historialnotas);
 
-        this.inicializarCOntroles();
+        this.inicializarControles();
     }
 
-    private void inicializarCOntroles() {
+    private void inicializarControles() {
         this.txtBienvendo = findViewById(R.id.txtBienvendo);
         this.lstNotas = findViewById(R.id.lstNotas);
     }
