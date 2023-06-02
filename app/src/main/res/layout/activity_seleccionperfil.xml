@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SeleccionPerfilActivity">
+    tools:context=".SeleccionPerfilActivity"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Universidad Tecnológica de Panamá\nFacultad de Sistemas\n\nSeleccione su Perfil"
-        android:textSize="29dp"
+        android:text="Universidad Tecnológica de Panamá\nFacultad de Sistemas\n\n\nSeleccione su Perfil"
+        android:textSize="24dp"
         android:gravity="center"
         android:layout_margin="25dp"/>
 
@@ -20,37 +21,43 @@
         android:layout_below="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true">
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp">
 
         <RadioButton
             android:id="@+id/rbEstudiante"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sitio de Estudiante">
+            android:text="Sitio de Estudiante"
+            android:textSize="20dp">
         </RadioButton>
 
         <RadioButton
             android:id="@+id/rbEstudianteSIU"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sitio de Estudiante SIU">
+            android:text="Sitio de Estudiante SIU"
+            android:textSize="20dp">
         </RadioButton>
 
         <RadioButton
             android:id="@+id/rbProfesor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sitio de Profesor">
+            android:text="Sitio de Profesor"
+            android:textSize="20dp">
         </RadioButton>
 
     </RadioGroup>
 
     <Button
         android:id="@+id/btnEntrar"
-        android:layout_below="@+id/rgOpciones"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Entrar"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginHorizontal="90dp"
+        android:padding="14dp"
+        android:backgroundTint="#5877C6"
+        android:onClick="Entrar"/>
 
-</RelativeLayout>
+</LinearLayout>
