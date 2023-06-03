@@ -11,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Parcial2_JuanZamora"
         tools:targetApi="31">
-        <activity android:name=".SeleccionPerfilActivity"></activity>
-        <activity android:name=".HistorialNotasActivity"></activity>
+        <activity android:name=".EstudianteActivity"></activity>
+        <activity android:name=".ProfesorActivity"></activity>
+        <activity android:name=".SeleccionActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
