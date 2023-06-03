@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HistorialNotasActivity  extends AppCompatActivity {
+public class EstudianteActivity extends AppCompatActivity {
 
     TextView txtBienvendo;
     ListView lstNotas;
@@ -14,7 +14,7 @@ public class HistorialNotasActivity  extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_historialnotas);
+        setContentView(R.layout.activity_estudiante);
 
         this.inicializarControles();
     }

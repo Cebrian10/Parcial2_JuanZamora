@@ -32,6 +32,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Ingresar(View view){
-        startActivity(new Intent(MainActivity.this, SeleccionPerfilActivity.class));
+        startActivity(new Intent(MainActivity.this, SeleccionActivity.class));
     }
 }

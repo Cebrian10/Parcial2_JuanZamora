@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SeleccionPerfilActivity extends AppCompatActivity {
+public class SeleccionActivity extends AppCompatActivity {
 
     TextView txtTitulo;
     RadioGroup rgOpciones;
@@ -20,7 +20,7 @@ public class SeleccionPerfilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seleccionperfil);
+        setContentView(R.layout.activity_seleccion);
 
         this.inicializarControles();
     }
@@ -35,6 +35,6 @@ public class SeleccionPerfilActivity extends AppCompatActivity {
     }
 
     public void Entrar(View view){
-        startActivity(new Intent(SeleccionPerfilActivity.this, HistorialNotasActivity.class));
+        startActivity(new Intent(SeleccionActivity.this, EstudianteActivity.class));
     }
 }
