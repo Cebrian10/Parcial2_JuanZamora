@@ -46,10 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private void inicializarDatos(){
         try {
             OutputStreamWriter writer = new OutputStreamWriter(openFileOutput("usuarios.txt", Context.MODE_PRIVATE));
-            writer.write("8-987-2235" + "," + "1234");
-            writer.write("\n");
+            writer.write("8-987-2235" + "," + "1234\n");
             writer.write("8-745-461" + "," + "4321");
-            writer.write("\n");
             writer.close();
             Toast.makeText(this, "DATOS CARGARON", Toast.LENGTH_SHORT).show();
         }catch(Exception ex){
@@ -67,27 +65,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "NO HAY NADA AUN", Toast.LENGTH_SHORT).show();
         }
     }
-    /*
-    private boolean VerificarExistencia() {
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("usuarios.txt")));
-            String texto = br.readLine();
-
-            while(texto != null){
-                String[] usuarios = texto.split(",");
-                if(edtCedula.getText().toString().equals(usuarios[0]) &&
-                        (edtContra.getText().toString().equals(usuarios[1]))){
-                    return true;
-                }
-                else
-                    return false;
-            }
-
-        }catch(Exception e){
-
-        }
-        return false;
-    }*/
 
     private boolean VerificarExistencia() {
         try {
