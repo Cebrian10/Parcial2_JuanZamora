@@ -109,8 +109,6 @@ public class MainActivity extends AppCompatActivity {
                         (edtContra.getText().toString().equals(usuarios.getContra()))){
                     return true;
                 }
-                else
-                    return false;
             }
         }catch(Exception e){
 
