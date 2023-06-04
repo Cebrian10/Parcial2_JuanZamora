@@ -1,6 +1,7 @@
 package com.example.parcial2_juanzamora;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +36,29 @@ public class SeleccionActivity extends AppCompatActivity {
     }
 
     public void Entrar(View view){
-        startActivity(new Intent(SeleccionActivity.this, EstudianteActivity.class));
+        try{
+            int rbSeleccionado = rgOpciones.getCheckedRadioButtonId();
+
+            switch(rbSeleccionado){
+
+                case R.id.rbEstudiante:
+                    startActivity(new Intent(SeleccionActivity.this, EstudianteActivity.class));
+                    break;
+
+                case R.id.rbEstudianteSIU:
+                    String url = "http://utp.ac.pa";
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+                    break;
+
+                case R.id.rbProfesor:
+                    startActivity(new Intent(SeleccionActivity.this, ProfesorActivity.class));
+                    break;
+            }
+
+        }catch(Exception ex){
+
+        }
     }
 }
