@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:background="@color/black">
+    android:layout_height="70dp"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/imgMateria"
@@ -17,10 +16,10 @@
         android:id="@+id/txtMateria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quimica"
+        android:text="Sist. de Info. General"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="23dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         android:layout_marginStart="10dp"
         android:layout_toRightOf="@+id/imgMateria"/>
 
@@ -30,7 +29,7 @@
         android:layout_height="wrap_content"
         android:text="II Smestre"
         android:textStyle="italic"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="13dp"
         android:layout_marginStart="18dp"
         android:layout_toRightOf="@+id/imgMateria"
@@ -42,16 +41,18 @@
         android:layout_height="wrap_content"
         android:text="A"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="40dp"
+        android:textColor="@color/black"
+        android:textSize="30dp"
         android:layout_marginEnd="10dp"
+        android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/imgNota"/>
 
     <ImageView
         android:id="@+id/imgNota"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/aprobado"
-        android:layout_alignParentEnd="true"/>
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:src="@drawable/reprobado"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
