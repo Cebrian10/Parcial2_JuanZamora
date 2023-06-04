@@ -17,6 +17,7 @@
 
         <activity android:name=".EstudianteActivity"></activity>
         <activity android:name=".ProfesorActivity"></activity>
+        <activity android:name=".NuevaNotaActivity"></activity>
         <activity android:name=".SeleccionActivity"></activity>
         <activity
             android:name=".MainActivity"

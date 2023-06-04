@@ -1,5 +1,8 @@
 package com.example.parcial2_juanzamora;
 
+import android.content.Intent;
+import android.os.Bundle;
+
 public class Nota {
 
     private int img1, img2;
@@ -55,5 +58,25 @@ public class Nota {
 
     public void setNota(String nota) {
         this.nota = nota;
+    }
+
+    public Bundle toBundle() {
+        Bundle b = new Bundle();
+        b.putInt("img1", getImg1());
+        b.putInt("img2", getImg2());
+        b.putString("materia", getMateria());
+        b.putString("semestre", getSemestre());
+        b.putString("nota", getNota());
+        return b;
+    }
+
+    public Nota toModel(Bundle b){ //Aqui se supone que se crean las llaves (key)
+        return new Nota(
+                b.getInt("img1"),
+                b.getInt("img2"),
+                b.getString("materia"),
+                b.getString("semestre"),
+                b.getString("nota")
+        );
     }
 }
