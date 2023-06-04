@@ -2,6 +2,7 @@ package com.example.parcial2_juanzamora;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,80 +43,76 @@ public class MainActivity extends AppCompatActivity {
         this.btnIngresar = findViewById(R.id.btnIngresar);
     }
 
+    private void inicializarDatos(){
+        try {
+            OutputStreamWriter writer = new OutputStreamWriter(openFileOutput("usuarios.txt", Context.MODE_PRIVATE));
+            writer.write("8-987-2235" + "," + "1234");
+            writer.write("\n");
+            writer.write("8-745-461" + "," + "4321");
+            writer.write("\n");
+            writer.close();
+            Toast.makeText(this, "DATOS CARGARON", Toast.LENGTH_SHORT).show();
+        }catch(Exception ex){
+            Toast.makeText(this, "NO SE CARGARON", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public void Ingresar(View view){
-        if(VerificarExistenciaArchivo()){
-            String cedulaIngresada = edtCedula.getText().toString();
-            String contraIngresada = edtCedula.getText().toString();
-            if(verificarUsuario(cedulaIngresada, contraIngresada))
+        try {
+            if(VerificarExistencia())
                 startActivity(new Intent(MainActivity.this, SeleccionActivity.class));
             else
                 Toast.makeText(this, "NO SON IGUALES", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        }catch (Exception e){
             Toast.makeText(this, "NO HAY NADA AUN", Toast.LENGTH_SHORT).show();
         }
     }
-
-    private boolean verificarUsuario(String cedulaIngresada, String contraIngresada) {
+    /*
+    private boolean VerificarExistencia() {
         try {
-            List<Usuarios> usuarios = convertirArchivoList();
-            for (Usuarios usuario : usuarios){
-                if(cedulaIngresada.equals(usuario.getCedula()) && contraIngresada.equals(usuario.getContra()))
-                    return true;
-            }
-        } catch (Exception e) {
-
-        }
-        return false;
-    }
-
-    private void inicializarDatos(){
-        String cedula = "8-987-2235", contra = "1234";
-        try {
-            BufferedWriter bw = new BufferedWriter((new OutputStreamWriter(openFileOutput("usuarios.txt", MODE_PRIVATE))));
-            bw.write(cedula + "," + contra);
-            bw.newLine();
-            bw.close();
-
-        }catch(Exception ex){
-            Toast.makeText(this, "ALGO PASO", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private boolean VerificarExistenciaArchivo(){
-        try{
             BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("usuarios.txt")));
             String texto = br.readLine();
 
-            if(!texto.isEmpty())
-                return true;
-
-        }catch(Exception ex){
-            return false;
-        }
-        return false;
-    }
-
-    private List<Usuarios> convertirArchivoList(){
-        try{
-            List<Usuarios> usuarios = new ArrayList<>();
-            String texto = new BufferedReader(new InputStreamReader(openFileInput("usuarios.txt"))).readLine();
-
-            String[] arrUsuarios = texto.split(",");
-
-            for(String usuario : arrUsuarios){
-                String[] arrUsuario = usuario.split(",");
-                Usuarios newUsuario = new Usuarios(
-                        arrUsuario[0],
-                        arrUsuario[1]
-                );
-                usuarios.add(newUsuario);
+            while(texto != null){
+                String[] usuarios = texto.split(",");
+                if(edtCedula.getText().toString().equals(usuarios[0]) &&
+                        (edtContra.getText().toString().equals(usuarios[1]))){
+                    return true;
+                }
+                else
+                    return false;
             }
-            return usuarios;
 
         }catch(Exception e){
 
         }
-        return new ArrayList<Usuarios>();
+        return false;
+    }*/
+
+    private boolean VerificarExistencia() {
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("usuarios.txt")));
+            List<Usuarios> usuariosList = new ArrayList<>();
+
+            String texto;
+
+            while((texto = br.readLine()) != null){
+                String[] datos = texto.split(",");
+                if(datos.length == 2){
+                    Usuarios usuario = new Usuarios(datos[0], datos[1]);
+                    usuariosList.add(usuario);
+                }
+            }
+
+            for(Usuarios usuarios : usuariosList){
+                if (edtCedula.getText().toString().equals(usuarios.getCedula()) &&
+                        (edtContra.getText().toString().equals(usuarios.getContra()))){
+                    return true;
+                }
+            }
+        }catch(Exception e){
+
+        }
+        return false;
     }
 }
