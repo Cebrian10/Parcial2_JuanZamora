@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +40,8 @@ public class ProfesorActivity extends AppCompatActivity {
             adapter = new NotaAdapter(this, LlenarListView());
         }
         lstNotas.setAdapter(adapter);
+        datosProfesor();
+
     }
 
     private void inicializarControles() {
@@ -72,5 +76,33 @@ public class ProfesorActivity extends AppCompatActivity {
         notaList.add(new Nota(R.drawable.sist_info, R.drawable.aprobado, "Sist. de Info. General", "II Semestre", "A"));
         notaList.add(new Nota(R.drawable.sist_op, R.drawable.reprobado, "Sist. Operativos I", "II Semestre", "D"));
         return notaList;
+    }
+
+    private void datosProfesor(){
+        String nom_profesor = " ";
+
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("profesores.txt")));
+            List<Usuarios> usuariosList = new ArrayList<>();
+            String texto;
+
+            while((texto = br.readLine()) != null){
+
+                String[] datos = texto.split(",");
+
+                if(datos.length == 3){
+                    Usuarios usuario = new Usuarios(datos[0], datos[1], datos[2]);
+                    usuariosList.add(usuario);
+
+                    nom_profesor = usuario.getNombre();
+                }
+            }
+
+        }catch(Exception e){
+
+        }
+
+
+        txtBienvendo.setText("Bienvenido Profesor " + nom_profesor);
     }
 }

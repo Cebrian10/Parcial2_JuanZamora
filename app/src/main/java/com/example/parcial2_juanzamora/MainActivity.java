@@ -13,12 +13,9 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,10 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void inicializarDatos(){
         try {
-            OutputStreamWriter writer = new OutputStreamWriter(openFileOutput("usuarios.txt", Context.MODE_PRIVATE));
-            writer.write("8-987-2235" + "," + "1234\n");
-            writer.write("8-745-461" + "," + "4321");
-            writer.close();
+            OutputStreamWriter writerEs = new OutputStreamWriter(openFileOutput("estudiantes.txt", Context.MODE_PRIVATE));
+            writerEs.write("8-975-537" + "," + "1234" + "," + "Pablo Palacios\n");
+            writerEs.close();
+
+            OutputStreamWriter writerProf = new OutputStreamWriter(openFileOutput("profesores.txt", Context.MODE_PRIVATE));
+            writerProf.write("8-987-2235" + "," + "456" + "," + "Ameth Cebrian\n");
+            writerProf.close();
+
             Toast.makeText(this, "DATOS CARGARON", Toast.LENGTH_SHORT).show();
         }catch(Exception ex){
             Toast.makeText(this, "NO SE CARGARON", Toast.LENGTH_SHORT).show();
@@ -57,38 +58,83 @@ public class MainActivity extends AppCompatActivity {
 
     public void Ingresar(View view){
         try {
-            if(VerificarExistencia())
-                startActivity(new Intent(MainActivity.this, SeleccionActivity.class));
-            else
-                Toast.makeText(this, "NO SON IGUALES", Toast.LENGTH_SHORT).show();
+            if(VerificarExistenciaEstudiante()) {
+
+                Intent intent = new Intent(MainActivity.this, SeleccionActivity.class);
+                intent.putExtra("rbProfesor", !VerificarExistenciaEstudiante());
+                intent.putExtra("rbEstudiante", !VerificarExistenciaProfesor());
+                startActivity(intent);
+
+            }else if(VerificarExistenciaProfesor()){
+
+                Intent intent = new Intent(MainActivity.this, SeleccionActivity.class);
+                intent.putExtra("rbProfesor", !VerificarExistenciaEstudiante());
+                intent.putExtra("rbEstudiante", !VerificarExistenciaProfesor());
+                startActivity(intent);
+
+            }
+            else {
+                Toast.makeText(this, "CREDENCIALES INVALIDAS", Toast.LENGTH_SHORT).show();
+            }
         }catch (Exception e){
-            Toast.makeText(this, "NO HAY NADA AUN", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ALGO FALLO, CONTACTA A SOPORTE", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private boolean VerificarExistencia() {
+    public boolean VerificarExistenciaEstudiante() {
         try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("usuarios.txt")));
+            BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("estudiantes.txt")));
             List<Usuarios> usuariosList = new ArrayList<>();
 
             String texto;
 
             while((texto = br.readLine()) != null){
+
                 String[] datos = texto.split(",");
-                if(datos.length == 2){
-                    Usuarios usuario = new Usuarios(datos[0], datos[1]);
+
+                if(datos.length == 3){
+                    Usuarios usuario = new Usuarios(datos[0], datos[1], datos[2]);
                     usuariosList.add(usuario);
                 }
             }
 
             for(Usuarios usuarios : usuariosList){
-                if (edtCedula.getText().toString().equals(usuarios.getCedula()) &&
-                        (edtContra.getText().toString().equals(usuarios.getContra()))){
+
+                if (edtCedula.getText().toString().equals(usuarios.getCedula()) && (edtContra.getText().toString().equals(usuarios.getContra()))){
                     return true;
                 }
             }
-        }catch(Exception e){
 
+        }catch(Exception e){
+        }
+        return false;
+    }
+
+    public boolean VerificarExistenciaProfesor() {
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("profesores.txt")));
+            List<Usuarios> usuariosList = new ArrayList<>();
+
+            String texto;
+
+            while((texto = br.readLine()) != null){
+
+                String[] datos = texto.split(",");
+
+                if(datos.length == 3){
+                    Usuarios usuario = new Usuarios(datos[0], datos[1], datos[2]);
+                    usuariosList.add(usuario);
+                }
+            }
+
+            for(Usuarios usuarios : usuariosList){
+
+                if (edtCedula.getText().toString().equals(usuarios.getCedula()) && (edtContra.getText().toString().equals(usuarios.getContra()))){
+                    return true;
+                }
+            }
+
+        }catch(Exception e){
         }
         return false;
     }

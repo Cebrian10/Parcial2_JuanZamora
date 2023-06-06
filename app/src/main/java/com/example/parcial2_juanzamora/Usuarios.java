@@ -1,11 +1,12 @@
 package com.example.parcial2_juanzamora;
 
 public class Usuarios {
-    private String cedula, contra;
+    private String cedula, contra, nombre;
 
-    public Usuarios(String ced, String con){
+    public Usuarios(String ced, String con, String nom){
         this.cedula = ced;
         this.contra = con;
+        this.nombre = nom;
     }
 
     public String getCedula() {
@@ -22,5 +23,13 @@ public class Usuarios {
 
     public void setContra(String contra) {
         this.contra = contra;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.parcial2_juanzamora.MainActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,12 +21,29 @@ public class SeleccionActivity extends AppCompatActivity {
     RadioButton rbEstudiante, rbEstudianteSIU, rbProfesor;
     Button btnEntrar;
 
+    MainActivity metodo = new MainActivity();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccion);
 
         this.inicializarControles();
+
+
+        boolean mostrarBotonProfesor = getIntent().getBooleanExtra("rbProfesor", true);
+        boolean mostrarBotonEstudiante = getIntent().getBooleanExtra("rbEstudiante", true);
+
+        if (!mostrarBotonProfesor) {
+            rbProfesor.setVisibility(View.GONE);
+        }
+
+        if (!mostrarBotonEstudiante) {
+            rbEstudiante.setVisibility(View.GONE);
+            rbEstudianteSIU.setVisibility(View.GONE);
+        }
     }
 
     private void inicializarControles() {
@@ -53,7 +73,7 @@ public class SeleccionActivity extends AppCompatActivity {
                     break;
 
                 case R.id.rbProfesor:
-                    startActivity(new Intent(SeleccionActivity.this, ProfesorActivity.class));
+                    startActivity(new Intent(SeleccionActivity.this,ProfesorActivity.class));
                     break;
             }
 
