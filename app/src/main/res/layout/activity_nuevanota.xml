@@ -18,12 +18,16 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="25dp"
         android:paddingVertical="5dp">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtMateria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Materia">
+            android:hint="Materia"
+            android:inputType="text">
         </com.google.android.material.textfield.TextInputEditText>
+
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -35,7 +39,8 @@
             android:id="@+id/edtSemestre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Semestre">
+            android:hint="Semestre"
+            android:inputType="text">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -49,7 +54,8 @@
             android:id="@+id/edtNota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nota">
+            android:hint="Nota"
+            android:inputType="text">
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
