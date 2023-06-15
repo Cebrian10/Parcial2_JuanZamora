@@ -29,7 +29,7 @@ public class ProfesorActivity extends AppCompatActivity {
 
         this.inicializarControles();
 
-
+/*
         Bundle b = getIntent().getExtras(); // Aqui es donde se guardan los datos enviados de NuevaNotaActivity en la linea 43
         if(b != null){
             Nota nota = new Nota().toModel(b);
@@ -40,8 +40,9 @@ public class ProfesorActivity extends AppCompatActivity {
             adapter = new NotaAdapter(this, LlenarListView());
         }
         lstNotas.setAdapter(adapter);
-        datosProfesor();
 
+ */
+        datosProfesor();
     }
 
     private void inicializarControles() {
@@ -51,18 +52,19 @@ public class ProfesorActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.menCrear){
+        if (item.getItemId() == R.id.menCrear) {
             startActivity(new Intent(ProfesorActivity.this, NuevaNotaActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
 
+    /*
     private List<Nota> LlenarListView(){
         List<Nota> notaList = new ArrayList<>();
         notaList.add(new Nota(R.drawable.inv_op, R.drawable.reprobado, "Inv. de Operaciones", "I Semestre", "F"));
@@ -78,6 +80,7 @@ public class ProfesorActivity extends AppCompatActivity {
         return notaList;
     }
 
+     */
     private void datosProfesor(){
         String nom_profesor = " ";
 

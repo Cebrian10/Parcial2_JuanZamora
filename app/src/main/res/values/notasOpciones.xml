@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notasOpciones">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>F</item>
+        <item>SIN NOTA</item>
+        <item>INCOMPLETO</item>
+    </string-array>
+</resources>

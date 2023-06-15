@@ -9,13 +9,13 @@
 
     <TextView
         android:id="@+id/txtTitulo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Universidad Tecnológica de Panamá\nFacultad de Sistemas\n\nNuevo Sistema de Matrícula"
         android:textSize="24dp"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_margin="25dp"/>
+        android:layout_margin="10dp"/>
 
     <LinearLayout
         android:id="@+id/linIconos"
@@ -42,43 +42,82 @@
 
     </LinearLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtCedula"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Cedula"
-            android:inputType="text">
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contraseña"
-        app:endIconMode="password_toggle"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtContra"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgCed"
+            android:layout_width="100px"
+            android:layout_height="120px"
+            android:src="@drawable/idlogo"
+            android:layout_marginStart="18dp"
+            app:shapeAppearanceOverlay="@style/imagenRedondeada"/>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword">
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtCedula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cedula"
+                android:inputType="text">
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgPass"
+            android:layout_width="100px"
+            android:layout_height="120px"
+            android:src="@drawable/passlogo"
+            android:layout_marginStart="18dp"
+            app:shapeAppearanceOverlay="@style/imagenRedondeada"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            app:endIconMode="password_toggle"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtContra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="#03cc00">
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
    <Button
         android:id="@+id/btnIngresar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingresar"
         android:layout_marginHorizontal="25dp"
         android:padding="14dp"
-        android:backgroundTint="#5877C6"
-        android:onClick="Ingresar"/>
+        android:backgroundTint="#5d615d"
+        android:onClick="Ingresar"
+       android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

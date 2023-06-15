@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="materiasOpciones">
+        <item>Inv. Operaciones</item>
+        <item>Org. Computacional</item>
+        <item>Ing. Software 2</item>
+        <item>Desarrollo 6</item>
+        <item>Desarrollo 5</item>
+        <item>Sist. Operativos</item>
+        <item>Sist. Info. General</item>
+        <item>Desarrollo 7</item>
+        <item>Desarrollo 8</item>
+        <item>Redes de Computadoras</item>
+    </string-array>
+</resources>
