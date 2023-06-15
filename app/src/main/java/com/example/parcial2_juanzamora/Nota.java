@@ -1,39 +1,38 @@
 package com.example.parcial2_juanzamora;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 public class Nota {
 
-    private int img1, img2;
+    private int imgMateria, imgNota;
     private String materia, semestre, nota;
 
     public Nota(){
 
     }
 
-    public Nota(int im1, int im2, String mat, String sem, String not){
-        this.img1 = im1;
-        this.img2 = im2;
+    public Nota(int imgMateria, int imgNota, String mat, String sem, String not){
+        this.imgMateria = imgMateria;
+        this.imgNota = imgNota;
         this.materia = mat;
         this.semestre = sem;
         this.nota = not;
     }
 
-    public int getImg1() {
-        return img1;
+    public int getImgMateria() {
+        return imgMateria;
     }
 
-    public void setImg1(int img1) {
-        this.img1 = img1;
+    public void setImgMateria(int imgMateria) {
+        this.imgMateria = imgMateria;
     }
 
-    public int getImg2() {
-        return img2;
+    public int getImgNota() {
+        return imgNota;
     }
 
-    public void setImg2(int img2) {
-        this.img2 = img2;
+    public void setImgNota(int imgNota) {
+        this.imgNota = imgNota;
     }
 
     public String getMateria() {
@@ -62,8 +61,8 @@ public class Nota {
 
     public Bundle toBundle() {
         Bundle b = new Bundle();
-        b.putInt("img1", getImg1());
-        b.putInt("img2", getImg2());
+        b.putInt("imgMateria", getImgMateria());
+        b.putInt("imgNota", getImgNota());
         b.putString("materia", getMateria());
         b.putString("semestre", getSemestre());
         b.putString("nota", getNota());
@@ -72,8 +71,8 @@ public class Nota {
 
     public Nota toModel(Bundle b){ //Aqui se supone que se crean las llaves (key)
         return new Nota(
-                b.getInt("img1"),
-                b.getInt("img2"),
+                b.getInt("imgMateria"),
+                b.getInt("imgNota"),
                 b.getString("materia"),
                 b.getString("semestre"),
                 b.getString("nota")

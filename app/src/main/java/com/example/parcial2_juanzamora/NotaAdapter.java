@@ -29,11 +29,11 @@ public class NotaAdapter extends ArrayAdapter<Nota> {
 
         View item = inflater.inflate(R.layout.listview_materia, null);
 
-        ImageView img1 = (ImageView)item.findViewById(R.id.imgMateria);
-        img1.setImageResource(notas.get(position).getImg1());
+        ImageView imgMateria = (ImageView)item.findViewById(R.id.imgMateria);
+        imgMateria.setImageResource(notas.get(position).getImgMateria());
 
-        ImageView img2 = (ImageView)item.findViewById(R.id.imgNota);
-        img2.setImageResource(notas.get(position).getImg2());
+        ImageView imgNota = (ImageView)item.findViewById(R.id.imgNota);
+        imgNota.setImageResource(notas.get(position).getImgNota());
 
         TextView materia = (TextView)item.findViewById(R.id.txtMateria);
         materia.setText(notas.get(position).getMateria());
